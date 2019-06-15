@@ -1,3 +1,7 @@
+/**
+ * DisjointSet con compression path y union-by-rank.
+ * */
+
 public class DisjointSet {
 
 	private int[] parent;

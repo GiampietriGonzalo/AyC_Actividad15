@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * Rreprensentacion de grafo, con matriz de adyacencia.
+ * */
+
 public class Grafo {
 	private int[] nodos;
 	private ArrayList<Pesado> arcos;
@@ -9,7 +13,6 @@ public class Grafo {
 		private int peso;
 		
 		private Pesado(ArrayList<Integer> arcoLista, int peso) {
-			// TODO Auto-generated constructor stub
 			this.arco = new Arco(arcoLista.get(0), arcoLista.get(1));
 			this.peso = peso;
 		}
@@ -19,7 +22,6 @@ public class Grafo {
 			private int nodo2;
 			
 			public Arco(int i, int j) {
-				// TODO Auto-generated constructor stub
 				this.nodo1 = i;
 				this.nodo2 = j;
 			}
