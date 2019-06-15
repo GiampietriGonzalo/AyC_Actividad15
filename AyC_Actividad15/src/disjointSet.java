@@ -1,10 +1,10 @@
-public class DisjoinSet {
+public class disjointSet {
 
 	private int[] parent;
 	private int[] rank;
 	private int size;
 	
-	public DisjoinSet(int maximumElements) {
+	public disjointSet(int maximumElements) {
 		parent = new int [maximumElements];
 		rank = new int[maximumElements];
 		size = maximumElements;

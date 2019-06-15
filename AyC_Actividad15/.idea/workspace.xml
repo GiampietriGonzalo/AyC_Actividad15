@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c69877b2-956f-4096-8bbb-f9947b0ce0d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DisjoinSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/disjointSet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,10 +48,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/DisjoinSet.java">
+        <entry file="file://$PROJECT_DIR$/src/disjointSet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
               <folding>
                 <element signature="e#443#444#0" expanded="true" />
                 <element signature="e#492#493#0" expanded="true" />
@@ -81,6 +81,7 @@
         <option value="$PROJECT_DIR$/src/MinHeap.java" />
         <option value="$PROJECT_DIR$/src/DisjointSet.java" />
         <option value="$PROJECT_DIR$/src/DisjoinSet.java" />
+        <option value="$PROJECT_DIR$/src/disjointSet.java" />
       </list>
     </option>
   </component>
@@ -210,7 +211,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DisjointSet.java">
+    <entry file="file://$PROJECT_DIR$/src/disjointSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
@@ -232,10 +233,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DisjoinSet.java">
+    <entry file="file://$PROJECT_DIR$/src/disjointSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
           <folding>
             <element signature="e#443#444#0" expanded="true" />
             <element signature="e#492#493#0" expanded="true" />
