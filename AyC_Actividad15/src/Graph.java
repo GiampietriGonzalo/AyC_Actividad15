@@ -183,6 +183,12 @@ interface GraphD<V,E> {
      * @throws InvalidEdgeException si el arco es inv�lido.
      */
     E removeEdge(Edge<E> e) throws InvalidEdgeException;
+
+    /**
+     * Retorna la cantidad total de vertices
+     * */
+    int totalVertex();
+    int totalEdges();
 }
 
 class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
@@ -358,6 +364,12 @@ class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
         return tR;
     }
 
+    public int totalVertex() {
+        return vertices.size();
+    }
 
+    public int totalEdges() {
+        return adyascentes.size();
+    }
 
 }

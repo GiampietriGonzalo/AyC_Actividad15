@@ -9,7 +9,7 @@ class MinHeap implements Heap {
     private int actualSize;
     private int maximumSize;
     private final int firstElement = 0;
-    private static final int FRONT = 1;
+    private final int Front = 1;
 
     public MinHeap(int maximumSize) {
         this.maximumSize = maximumSize;

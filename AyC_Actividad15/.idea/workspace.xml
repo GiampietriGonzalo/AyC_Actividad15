@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c69877b2-956f-4096-8bbb-f9947b0ce0d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DisjointSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisjointSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ejercicio1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MinHeap.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Heap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#1773#1774#0" expanded="true" />
                 <element signature="e#1810#1811#0" expanded="true" />
@@ -32,6 +30,32 @@
                 <element signature="e#1950#1951#0" expanded="true" />
                 <element signature="e#2375#2376#0" expanded="true" />
                 <element signature="e#2415#2416#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ejercicio1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+              <folding>
+                <element signature="e#385#402#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Graph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="118" column="62" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="62" />
+              <folding>
+                <element signature="e#11164#11165#0" expanded="true" />
+                <element signature="e#11199#11200#0" expanded="true" />
+                <element signature="e#11228#11229#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,13 +107,13 @@
         <option value="$PROJECT_DIR$/src/Ejercicio1/Ejercicio1.java" />
         <option value="$PROJECT_DIR$/src/Grafo.java" />
         <option value="$PROJECT_DIR$/src/DisjointSet.java" />
-        <option value="$PROJECT_DIR$/src/Ejercicio1.java" />
         <option value="$PROJECT_DIR$/src/List.java" />
-        <option value="$PROJECT_DIR$/src/Graph.java" />
         <option value="$PROJECT_DIR$/src/Queue.java" />
         <option value="$PROJECT_DIR$/src/MinHeap.java" />
-        <option value="$PROJECT_DIR$/src/Heap.java" />
         <option value="$PROJECT_DIR$/src/Stack.java" />
+        <option value="$PROJECT_DIR$/src/Heap.java" />
+        <option value="$PROJECT_DIR$/src/Graph.java" />
+        <option value="$PROJECT_DIR$/src/Ejercicio1.java" />
       </list>
     </option>
   </component>
@@ -122,7 +146,19 @@
               <item name="AyC_Actividad15" type="b2602c69:ProjectViewProjectNode" />
               <item name="AyC_Actividad15" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Stack.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="Graph.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="AyC_Actividad15" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AyC_Actividad15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Heap.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="AyC_Actividad15" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AyC_Actividad15" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Queue.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -211,26 +247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ejercicio1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3687">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-          <folding>
-            <element signature="e#8459#8470#0" expanded="true" />
-            <element signature="e#8457#8466#0" expanded="true" />
-            <element signature="e#9499#9508#0" expanded="true" />
-            <element signature="e#9500#9509#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Queue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
@@ -294,8 +310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Heap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#1773#1774#0" expanded="true" />
             <element signature="e#1810#1811#0" expanded="true" />
@@ -303,6 +319,28 @@
             <element signature="e#1950#1951#0" expanded="true" />
             <element signature="e#2375#2376#0" expanded="true" />
             <element signature="e#2415#2416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="118" column="62" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="62" />
+          <folding>
+            <element signature="e#11164#11165#0" expanded="true" />
+            <element signature="e#11199#11200#0" expanded="true" />
+            <element signature="e#11228#11229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ejercicio1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="e#385#402#0" expanded="true" />
           </folding>
         </state>
       </provider>
