@@ -1,8 +1,10 @@
+//TODO FALTA DISJOINTSET SIN HEURISTICA
+
 /**
  * DisjointSet con compression path y union-by-rank.
  * */
 
-public class DisjointSet {
+class DisjointSet {
 
 	private int[] parent;
 	private int[] rank;
