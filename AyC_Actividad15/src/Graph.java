@@ -170,6 +170,11 @@ interface Graph<V,E> {
      * @throws InvalidEdgeException si el arco es invalido.
      */
     E removeEdge(Edge<E> e) throws InvalidEdgeException;
+
+    /**
+     * Retorna la cantidad total de vertices del grafo.
+     * */
+    int totalVertex();
 }
 
 
@@ -311,7 +316,6 @@ class GrafoNoDirigido<V,E> implements Graph<V,E> {
             if(actual.getSucesor()==v2 || actual.getPredecesor()==v2)
                 son=true;
         }
-
         return son;
     }
 
@@ -330,5 +334,9 @@ class GrafoNoDirigido<V,E> implements Graph<V,E> {
                 tR.addLast(ar);
 
         return tR;
+    }
+
+    public int totalVertex() {
+        return vertices.size();
     }
 }

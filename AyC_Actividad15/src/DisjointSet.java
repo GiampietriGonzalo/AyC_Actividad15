@@ -44,19 +44,20 @@ public class DisjointSet {
 	}
 
 	/**
-	 * Determian si el grafo en el DisjointSet es conexo
+	 * Determina si el grafo en el DisjointSet es conexo
+	 * CHECKEAR
 	 * */
-	/*public boolean isRelated() {
+	public boolean esConexo() {
 		int root = findSet(parent[0]);
-		boolean isRelated = true;
+		boolean esConexo = true;
 
 		for (int i = 1; i < parent.length; i++) {
 			if (findSet(parent[i]) != root)
-				isRelated = false;
+				esConexo = false;
 		}
 		
-		return isRelated;
-	}*/
+		return esConexo;
+	}
 
 
 }
