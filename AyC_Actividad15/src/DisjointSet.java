@@ -16,7 +16,6 @@ public class DisjointSet {
 		for (int i=0; i<maximumElements; i++) {
 			makeSet(i);
 		}
-			
 	}
 	
 	public void makeSet(int element){
