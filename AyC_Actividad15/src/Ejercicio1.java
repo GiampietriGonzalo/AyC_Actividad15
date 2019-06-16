@@ -2,9 +2,10 @@ public class Ejercicio1 {
 
 
     /**
-     * Implementado un recorrido por niveles o breadth-first search(BFS)
+     * Determinar si un grafo no-dirigido y pesado es conexo implementado un recorrido por niveles o breadth-first search(BFS).
+     * FALTA VER COMO CHECKEAR SI ES CONVEXO DURANTE EL RECORRIDO.
      * */
-    public Vertex<Integer>[] breadhFirstSearch(GraphD<Integer,Integer> grafo) throws EmptyQueueException, InvalidVertexException, InvalidEdgeException {
+    public Vertex<Integer>[] breadthFirstSearch(GraphD<Integer,Integer> grafo) throws EmptyQueueException, InvalidVertexException, InvalidEdgeException {
         Iterable<Vertex<Integer>> vertices = grafo.vertices();
         char [] color = new char[grafo.totalVertex()];
         Queue<Vertex<Integer>> cola = new ArrayQueue<Vertex<Integer>>();

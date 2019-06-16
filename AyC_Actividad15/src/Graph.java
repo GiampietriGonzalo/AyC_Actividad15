@@ -1,22 +1,16 @@
 import java.util.Iterator;
 
 interface Position<E> {
-
     /**
      * Retorna el elemento de la posicion.
      * @return E elemento de la poscion.
      * */
-    public E element();
+    E element();
 }
 
-interface Edge<E> extends Position<E>{
+interface Edge<E> extends Position<E> {}
 
-}
-
-interface Vertex<V> extends Position<V> {
-
-
-}
+interface Vertex<V> extends Position<V> {}
 
 class Vertice<V,E> implements Vertex<V>{
 
@@ -85,123 +79,113 @@ class InvalidVertexException extends Exception{
     public InvalidVertexException(String s){super(s);}
 }
 
-interface GraphD<V,E> {
+interface Graph<V,E> {
 
     /**
-     * Devuelve una colecci�n iterable de v�rtices.
-     * @return Una colecci�n iterable de v�rtices.
+     * Devuelve una coleccion iterable de vertices.
+     * @return Una coleccion iterable de vertices.
      */
     Iterable<Vertex<V>> vertices();
 
     /**
-     * Devuelve una colecci�n iterable de arcos.
-     * @return Una colecci�n iterable de arcos.
+     * Devuelve una coleccion iterable de arcos.
+     * @return Una coleccion iterable de arcos.
      */
     Iterable<Edge<E>> edges();
 
     /**
-     * Devuelve una colecci�n iterable de arcos incidentes a un v�rtice v.
-     * @param v Un v�rtice.
-     * @return Una colecci�n iterable de arcos incidentes a un v�rtice v.
-     * @throws InvalidVertexException si el v�rtice es inv�lido.
+     * Devuelve una coleccion iterable de arcos incidentes a un vertice v.
+     * @param v Un vertice.
+     * @return Una coleccion iterable de arcos incidentes a un vertice v.
+     * @throws InvalidVertexException si el vertice es invalido.
      */
     Iterable<Edge<E>> incidentEdges(Vertex<V> v) throws InvalidVertexException;
 
-    /**
-     * Devuelve una colecci�n iterable de arcos adyacentes a un v�rtice v.
-     * @param v Un v�rtice
-     * @return Una colecci�n iterable de arcos adyacentes a un v�rtice v.
-     * @throws InvalidVertexException si el v�rtice es inv�lido.
-     */
-    public Iterable<Edge<E>> succesorEdges(Vertex<V> v) throws InvalidVertexException;
 
     /**
-     * Devuelve el v�rtice opuesto a un Arco E y un v�rtice V.
-     * @param v Un v�rtice
+     * Devuelve el vertice opuesto a un Arco E y un vertice V.
+     * @param v Un vertice
      * @param e Un arco
-     * @return El v�rtice opuesto a un Arco E y un v�rtice V.
-     * @throws InvalidVertexException si el v�rtice es inv�lido.
-     * @throws InvalidEdgeException si el arco es inv�lido.
+     * @return El vertice opuesto a un Arco E y un vertice V.
+     * @throws InvalidVertexException si el vertice es invalido.
+     * @throws InvalidEdgeException si el arco es invalido.
      */
     Vertex<V> opposite(Vertex<V> v, Edge<E> e) throws InvalidVertexException, InvalidEdgeException;
 
     /**
-     * Devuelve un Arreglo de 2 elementos con lo v�rtices extremos de un Arco e.
+     * Devuelve un Arreglo de 2 elementos con lo vertices extremos de un Arco e.
      * @param  e Un arco
      * @return Un Arreglo de 2 elementos con los extremos de un Arco e.
-     * @throws InvalidEdgeException si el arco es inv�lido.
+     * @throws InvalidEdgeException si el arco es invalido.
      */
     Vertex<V> [] endvertices(Edge<E> e) throws InvalidEdgeException;
 
     /**
-     * Devuelve verdadero si el v�rtice w es adyacente al v�rtice v.
-     * @param v Un v�rtice
-     * @param w Un v�rtice
-     * @return Verdadero si el v�rtice w es adyacente al v�rtice v, falso en caso contrario.
-     * @throws InvalidVertexException si uno de los v�rtices es inv�lido.
+     * Devuelve verdadero si el vertice w es adyacente al vertice v.
+     * @param v Un vertice
+     * @param w Un vertice
+     * @return Verdadero si el vertice w es adyacente al vertice v, falso en caso contrario.
+     * @throws InvalidVertexException si uno de los vertices es invalido.
      */
-    boolean areAdjacent(Vertex<V> v,Vertex<V> w) throws InvalidVertexException;
+    public boolean areAdjacent(Vertex<V> v,Vertex<V> w) throws InvalidVertexException;
 
     /**
-     * Reemplaza el r�tulo de v por un r�tulo x.
-     * @param v Un v�rtice
-     * @param x R�tulo
-     * @return El r�tulo anterior del v�rtice v al reemplazarlo por un r�tulo x.
-     * @throws InvalidVertexException si el v�rtice es inv�lido.
+     * Reemplaza el rotulo de v por un rotulo x.
+     * @param v Un vertice
+     * @param x Rotulo
+     * @return El rotulo anterior del vertice v al reemplazarlo por un rotulo x.
+     * @throws InvalidVertexException si el vertice es invalido.
      */
     V replace(Vertex<V> v, V x) throws InvalidVertexException;
 
     /**
-     * Inserta un nuevo v�rtice con r�tulo x.
-     * @param x r�tulo del nuevo v�rtice
-     * @return Un nuevo v�rtice insertado.
+     * Inserta un nuevo vertice con rotulo x.
+     * @param x rotulo del nuevo vertice
+     * @return Un nuevo vertice insertado.
      */
     Vertex<V> insertVertex(V x);
 
     /**
-     * Inserta un nuevo arco con r�tulo e, desde un v�rtice v a un v�rtice w.
-     * @param v Un v�rtice
-     * @param w Un v�rtice
-     * @param e r�tulo del nuevo arco.
-     * @return Un nuevo arco insertado desde un v�rtice V a un v�rtice W.
-     * @throws InvalidVertexException si uno de los v�rtices es inv�lido.
+     * Inserta un nuevo arco con rotulo e, con vertices extremos v y w.
+     * @param v Un vertice
+     * @param w Un vertice
+     * @param e rotulo del nuevo arco.
+     * @return Un nuevo arco.
+     * @throws InvalidVertexException si uno de los vertices es invalido.
      */
     Edge<E> insertEdge(Vertex<V> v, Vertex<V> w, E e) throws InvalidVertexException;
 
     /**
-     * Remueve un v�rtice V y retorna su r�tulo.
-     * @param v Un v�rtice
-     * @return r�tulo de V.
-     * @throws InvalidVertexException si el v�rtice es inv�lido.
+     * Remueve un vertice V y retorna su rotulo.
+     * @param v Un vertice
+     * @return rotulo de V.
+     * @throws InvalidVertexException si el vertice es invalido.
      */
     V removeVertex(Vertex<V> v) throws InvalidVertexException;
 
     /**
-     * Remueve un arco e y retorna su r�tulo.
+     * Remueve un arco e y retorna su rotulo.
      * @param e Un arco
-     * @return r�tulo de E.
-     * @throws InvalidEdgeException si el arco es inv�lido.
+     * @return rotulo de E.
+     * @throws InvalidEdgeException si el arco es invalido.
      */
     E removeEdge(Edge<E> e) throws InvalidEdgeException;
-
-    /**
-     * Retorna la cantidad total de vertices
-     * */
-    int totalVertex();
-    int totalEdges();
 }
 
-class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
+
+class GrafoNoDirigido<V,E> implements Graph<V,E> {
 
     //Atributos
     private PositionList<Vertice<V,E>> vertices;
     private PositionList<Arco<V,E>> adyascentes;
 
-    public DGrafoListaAdyascentes(){
-        vertices = new DoubleLinkedList<Vertice<V,E>>();
-        adyascentes = new DoubleLinkedList<Arco<V,E>>();
+    //Constructor
+    public GrafoNoDirigido(){
+        vertices=new DoubleLinkedList<Vertice<V,E>>();
+        adyascentes=new DoubleLinkedList<Arco<V,E>>();
     }
 
+    //Metodos
     public Vertex<V> insertVertex(V x){
         Vertice<V,E> v= new Vertice<V,E>(x);
         vertices.addLast(v);
@@ -248,7 +232,6 @@ class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
         return ar.element();
     }
 
-
     public V removeVertex(Vertex<V> e) throws InvalidVertexException{
         Vertice<V,E> v= checkVertex(e);
         try{
@@ -262,8 +245,6 @@ class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
 
         return v.element();
     }
-
-
 
 
     private Vertice<V,E> checkVertex(Vertex<V> v)throws InvalidVertexException{
@@ -305,7 +286,7 @@ class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
         if(v1==a1.getPredecesor())
             tR=a1.getSucesor();
         else
-            throw new InvalidVertexException("El vertice no tienen un opuesto con respecto a este arco");
+            throw new InvalidVertexException("El vertice no tienenun opuesto con respecto a este arco");
 
         return tR;
     }
@@ -348,28 +329,6 @@ class DGrafoListaAdyascentes<V,E> implements GraphD<V,E> {
             if(ar.getSucesor()==v1)
                 tR.addLast(ar);
 
-
         return tR;
     }
-
-
-    public Iterable<Edge<E>> succesorEdges(Vertex<V> v)throws InvalidVertexException {
-        Vertice<V,E> v1=checkVertex(v);
-        PositionList<Edge<E>> tR= new DoubleLinkedList<Edge<E>>();
-        for(Arco<V,E> ar: v1.getAdyascentes()){
-            if(ar.getPredecesor()==v1)
-                tR.addLast(ar);
-        }
-
-        return tR;
-    }
-
-    public int totalVertex() {
-        return vertices.size();
-    }
-
-    public int totalEdges() {
-        return adyascentes.size();
-    }
-
 }
