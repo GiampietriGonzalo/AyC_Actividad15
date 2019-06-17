@@ -41,7 +41,7 @@ import com.google.gson.GsonBuilder;
 
 		private static GrafoWS getGrafo(int nodos, int arcos) throws Exception {
 
-			String consulta = "curl http://cs.uns.edu.ar/~mom/AyC2019/grafo.php?nodos="+nodos+"&arcos="+arcos;
+			String consulta = "curl http://cs.uns.edu.ar/~mom/AyC2019/grafo.php?nodos="+nodos+"&arcos="+arcos+"&conexo=1";
 			Process process = Runtime.getRuntime().exec(consulta);
 			InputStream inputSt = process.getInputStream();
 			@SuppressWarnings("resource")
@@ -59,7 +59,6 @@ import com.google.gson.GsonBuilder;
 
 		private static Graph<Integer,Integer> makeGraph(int nodos, int arcos) throws Exception {
 			GrafoWS graphFromWebService = getGrafo(nodos, arcos);
-			int [] nodesWS = graphFromWebService.getNodos();
 			ArrayList<GrafoWS.Pesado> arcosWS = graphFromWebService.getArcos();
 
 			Graph<Integer,Integer> grafo = new GrafoNoDirigido();

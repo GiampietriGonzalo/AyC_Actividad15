@@ -1,5 +1,23 @@
+import java.io.IOException;
+
 public class Ejercicio1 {
 
+
+    public static void main(String[] args) throws IOException {
+
+       try{
+        Graph<Integer,Integer> grafo = Service.makeGraph(500,40000,1);
+        if(esConexo(grafo)) {
+            System.out.println("El grafo es conexo, FUNCIONA");
+        } else {
+            System.out.println("El grafo no es conexo, NO FUNCIONA");
+        }
+
+       } catch (Exception e) {
+           System.out.println(e.getMessage());
+       }
+
+    }
 
     //ALGORTIMO BFS
 
@@ -57,13 +75,19 @@ public class Ejercicio1 {
 
     //Solucion con DisjointSet
 
-    //TODO: CHECKEAR
+    //TODO: CORREGIR Y CHECKEAR
 
-    public boolean esConexo(Graph<Integer,Integer> grafo) {
+    public static boolean esConexo(Graph<Integer,Integer> grafo) {
         DisjointSet conjunto = new DisjointSet(grafo.totalVertex());
+        Arco<Integer,Integer> arco;
 
         for (Vertex<Integer> vertice: grafo.vertices()) {
             conjunto.makeSet(vertice.element());
+        }
+
+        for(Edge<Integer> edge: grafo.edges()) {
+            arco = (Arco<Integer,Integer>) edge;
+            //TODO HACER LOS UNION
         }
 
         return conjunto.esConexo();
