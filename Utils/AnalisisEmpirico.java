@@ -44,4 +44,23 @@ import com.google.gson.GsonBuilder;
 				throw new Exception(jsonString);
 			}
 		}
+
+		private static void getGrafoFromWebService() {
+			String consulta = "curl http://cs.uns.edu.ar/~mom/AyC2019/grafo.php?nodos="+nodos+"&arcos="+arcos;
+			Process process = Runtime.getRuntime().exec(consulta);
+			InputStream inputSt = process.getInputStream();
+			
+			@SuppressWarnings("resource")
+			Scanner s = new Scanner(inputSt).useDelimiter("\\A");
+			String jsonString = s.hasNext() ? s.next() : "";
+			Gson gson = new GsonBuilder().create();
+			
+			try{
+				Grafo.GrafoObj gr = gson.fromJson(jsonString, Grafo.GrafoObj.class);
+			} catch (Exception e) {
+				throw new Exception(jsonString);
+			}
+
+			//return new Grafo(gr);
+		}
 	}
