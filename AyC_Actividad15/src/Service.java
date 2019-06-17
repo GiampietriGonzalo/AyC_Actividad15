@@ -16,7 +16,7 @@ public class Service {
         @SuppressWarnings("resource")
         Scanner s = new Scanner(inputSt).useDelimiter("\\A");
         String jsonString = s.hasNext() ? s.next() : "";
-        System.out.println("Tengo el grafo en formato JSON. Lo convierto...");
+        //System.out.println("Tengo el grafo en formato JSON. Lo convierto...");
         Gson gson = new GsonBuilder().create();
         try{
             GrafoWS.GrafoObj gr = gson.fromJson(jsonString, GrafoWS.GrafoObj.class);
@@ -30,14 +30,16 @@ public class Service {
         GrafoWS graphFromWebService = getGrafo(nodos, arcos, conexo);
         ArrayList<GrafoWS.Pesado> arcosWS = graphFromWebService.getArcos();
 
+
         Graph<Integer,Integer> grafo = new GrafoNoDirigido();
+        int [] yaInsertados = new int[graphFromWebService.getNodosCount()];
 
         int pesoAux=0;
-        int nodoAuxA, nodoAuxB;
+        int nodoAuxA,nodoAuxB;
         GrafoWS.Pesado.Arco arcoAux;
 
-        Vertex<Integer> nodeA;
-        Vertex<Integer> nodeB;
+        Vertex<Integer> nodeA = null;
+        Vertex<Integer> nodeB= null;
         Arco<Integer,Integer> arco;
 
         for(GrafoWS.Pesado arcoPesado: arcosWS) {
@@ -46,8 +48,16 @@ public class Service {
             nodoAuxA = arcoAux.getNodo1();
             nodoAuxB = arcoAux.getNodo2();
 
-            nodeA = grafo.insertVertex(nodoAuxA);
-            nodeB = grafo.insertVertex(nodoAuxB);
+            if(yaInsertados[nodoAuxA] == 0) {
+                nodeA = grafo.insertVertex(nodoAuxA);
+                yaInsertados[nodoAuxA] = 1;
+            }
+
+            if(yaInsertados[nodoAuxB] == 0) {
+                nodeB = grafo.insertVertex(nodoAuxB);
+                yaInsertados[nodoAuxB] = 1;
+            }
+
             grafo.insertEdge(nodeA, nodeB, pesoAux);
         }
         return  grafo;

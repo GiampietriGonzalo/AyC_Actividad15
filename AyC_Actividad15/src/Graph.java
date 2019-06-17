@@ -175,6 +175,11 @@ interface Graph<V,E> {
      * Retorna la cantidad total de vertices del grafo.
      * */
     int totalVertex();
+
+    /**
+     * Retorna la cantidad total de vertices del grafo.
+     * */
+    int totalEdges();
 }
 
 
@@ -338,5 +343,26 @@ class GrafoNoDirigido<V,E> implements Graph<V,E> {
 
     public int totalVertex() {
         return vertices.size();
+    }
+
+    public int totalEdges() {
+        return adyascentes.size();
+    }
+
+    public String toString(){
+        String toReturn = "";
+
+        Vertice<E,E> nodoA;
+        Vertice<E,E> nodoB;
+        Arco<E,E> arco;
+
+        for(Edge<E> edge: edges()) {
+            arco = (Arco<E, E>)edge;
+            nodoA = arco.getPredecesor();
+            nodoB = arco.getSucesor();
+            toReturn +=  "A = " + nodoA.element()  + " B = " + nodoB.element() + " PesoArco = " + arco.element() +"\n";
+        }
+
+        return toReturn;
     }
 }

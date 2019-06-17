@@ -3,7 +3,6 @@
 /**
  * DisjointSet con compression path y union-by-rank.
  * */
-
 class DisjointSet {
 
 	private int[] parent;
@@ -22,7 +21,7 @@ class DisjointSet {
 	
 	public void makeSet(int element){
 		parent[element] = element;
-		rank[element] = 0;
+		rank[element] = 1;
 	}
 
 	public int findSet(int element) {
@@ -32,17 +31,16 @@ class DisjointSet {
 	}
 	
 	public void union(int elementX, int elementY) {
-		link(findSet(elementX), findSet(elementY));
-	}
-	
-	private void link(int elementX, int elementY) {
-		if (rank[elementX] > rank[elementY])
-			parent[elementY] = elementX;
+		int x = findSet(elementX);
+		int y = findSet(elementY);
+
+		if (rank[x] > rank[x])
+			parent[y] = x;
 		else
-			parent[elementX] = elementY;
-		
-		if (rank[elementX] == rank[elementY])
-			rank[elementY] += 1;
+			parent[x] = y;
+
+		if (rank[x] == rank[y])
+			rank[y] += 1;
 	}
 
 	/**
@@ -53,13 +51,22 @@ class DisjointSet {
 		int root = findSet(parent[0]);
 		boolean esConexo = true;
 
-		for (int i = 1; i < parent.length; i++) {
-			if (findSet(parent[i]) != root)
+		int j = 0;
+		while (esConexo && j<parent.length) {
+			if(findSet(j) != root)
 				esConexo = false;
+			j++;
 		}
+
 		
 		return esConexo;
 	}
 
+	public String toString() {
+		String toReturn = "";
+		for (int i=0; i<parent.length; i++)
+			toReturn += "nodo:" + i + " parent:" + parent[i] + "\n";
 
+		return toReturn;
+	}
 }

@@ -6,17 +6,57 @@ public class Ejercicio1 {
     public static void main(String[] args) throws IOException {
 
        try{
-        Graph<Integer,Integer> grafo = Service.makeGraph(500,40000,1);
+        Graph<Integer,Integer> grafo = Service.makeGraph(5,7,1);
+        System.out.println("GRAFO CONEXO \n" + grafo.toString());
+
         if(esConexo(grafo)) {
             System.out.println("El grafo es conexo, FUNCIONA");
         } else {
             System.out.println("El grafo no es conexo, NO FUNCIONA");
         }
 
+        grafo = Service.makeGraph(5, 4,0);
+        System.out.println("\nGRAFO NO CONEXO\n" + grafo.toString());
+
+        if(!esConexo(grafo)) {
+            System.out.println("El grafo no es conexo, FUNCIONA");
+        } else {
+            System.out.println("El grafo es conexo, NO FUNCIONA");
+        }
+
        } catch (Exception e) {
            System.out.println(e.getMessage());
        }
 
+    }
+
+    //Solucion con DisjointSet
+
+    //TODO: CORREGIR Y CHECKEAR
+
+    public static boolean esConexo(Graph<Integer,Integer> grafo) {
+        DisjointSet conjunto = buildDisjointSet(grafo);
+        return conjunto.esConexo();
+    }
+
+    private static DisjointSet buildDisjointSet(Graph<Integer,Integer> grafo){
+        DisjointSet set = new DisjointSet(grafo.totalVertex());
+        Arco<Integer,Integer> arco;
+
+        for (Vertex<Integer> vertice: grafo.vertices()) {
+            set.makeSet(vertice.element());
+        }
+
+        for(Edge<Integer> edge: grafo.edges()) {
+            arco = (Arco<Integer,Integer>) edge;
+            set.union(arco.getPredecesor().element(), arco.getSucesor().element());
+        }
+
+        for (Vertex<Integer> vertice: grafo.vertices()) {
+            set.findSet(vertice.element());
+        }
+
+        return set;
     }
 
     //ALGORTIMO BFS
@@ -72,28 +112,6 @@ public class Ejercicio1 {
         }
         return foresta;
     }
-
-    //Solucion con DisjointSet
-
-    //TODO: CORREGIR Y CHECKEAR
-
-    public static boolean esConexo(Graph<Integer,Integer> grafo) {
-        DisjointSet conjunto = new DisjointSet(grafo.totalVertex());
-        Arco<Integer,Integer> arco;
-
-        for (Vertex<Integer> vertice: grafo.vertices()) {
-            conjunto.makeSet(vertice.element());
-        }
-
-        for(Edge<Integer> edge: grafo.edges()) {
-            arco = (Arco<Integer,Integer>) edge;
-            //TODO HACER LOS UNION
-        }
-
-        return conjunto.esConexo();
-    }
-
-
 
     // SOLUCION CON BFS
 
