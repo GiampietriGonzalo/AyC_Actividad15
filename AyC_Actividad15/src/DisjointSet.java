@@ -1,6 +1,9 @@
 interface IDisjointSet {
 	int find(int i);
 	void union(int i, int j);
+	//TODO: UN VEZ FUNCIONANDO, REMOVER
+	boolean esConexo();
+
 }
 
 
@@ -15,33 +18,47 @@ class ClassicDisjointSet implements IDisjointSet {
 		makeSet();
 	}
 
-	private void makeSet()
-	{
+	private void makeSet() {
 		for (int i = 0; i < n; i++) {
 			this.parent[i] = i;
 		}
 	}
 
 	// Finds the representative of the set that i is an element of
-	public int find(int x)
-	{
-		if (parent[x] == x)
-		{
+	public int find(int x) {
+		if (parent[x] == x) {
 			return x;
-		}
-		else
-		{
+		} else {
 			return find(parent[x]);
 		}
 	}
 
 	// Unites the set that includes i and the set that includes j
-	public void union(int x, int y)
-	{
+	public void union(int x, int y) {
 		int i_representative = this.find(x);
 		int j_representative = this.find(y);
-
 		parent[i_representative] = j_representative;
+	}
+
+	public String toString() {
+		String toReturn = "";
+		for (int i=0; i<parent.length; i++)
+			toReturn += "nodo:" + i + " parent:" + parent[i] + "\n";
+
+		return  toReturn;
+	}
+
+	//TODO: UN VEZ FUNCIONANDO, REMOVER
+	public boolean esConexo() {
+		int root = find(parent[0]);
+		int j = 0;
+
+		while (j<parent.length) {
+			if(find(parent[j]) != root)
+				return false;
+			j++;
+		}
+		return  true;
 	}
 
 }
@@ -61,24 +78,20 @@ class ImprovedDisjointSet implements IDisjointSet {
 		makeSet();
 	}
 
-	private void makeSet()
-	{
+	private void makeSet() {
 		for (int i = 0; i < n; i++) {
 			this.parent[i] = i;
 		}
 	}
 
-	public int find(int x)
-	{
+	public int find(int x) {
 		if (parent[x] != x) {
 			parent[x] = find(parent[x]);
 		}
-
 		return parent[x];
 	}
 
-	public void union(int x, int y)
-	{
+	public void union(int x, int y) {
 		int xRoot = find(x), yRoot = find(y);
 
 		if (xRoot == yRoot)
@@ -95,11 +108,29 @@ class ImprovedDisjointSet implements IDisjointSet {
 			}
 	}
 
+	public String toString() {
+		String toReturn = "";
+		for (int i=0; i<parent.length; i++)
+			toReturn += "nodo:" + i + " parent:" + parent[i] + "\n";
+
+		return  toReturn;
+	}
+
+	public boolean esConexo() {
+		int root = find(parent[0]);
+		int j = 0;
+
+		while (j<parent.length) {
+			if(find(parent[j]) != root)
+				return false;
+			j++;
+		}
+		return  true;
+	}
 }
 
 class MainDisjointSet {
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// Let there be 5 persons with ids as
 		// 0, 1, 2, 3 and 4
 		int n = 5;

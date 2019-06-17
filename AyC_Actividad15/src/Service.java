@@ -8,9 +8,12 @@ import java.util.Scanner;
 
 public class Service {
 
-    private static GrafoWS getGrafo(int nodos, int arcos, int conexo) throws Exception {
+    private static GrafoWS getGrafo(int nodos, int arcos, boolean conexo) throws Exception {
 
-        String consulta = "curl http://cs.uns.edu.ar/~mom/AyC2019/grafo.php?nodos="+nodos+"&arcos="+arcos+"&conexo="+conexo;
+        String consulta = "curl http://cs.uns.edu.ar/~mom/AyC2019/grafo.php?nodos="+nodos+"&arcos="+arcos;
+        if (conexo)
+            consulta += "&conexo=1";
+
         Process process = Runtime.getRuntime().exec(consulta);
         InputStream inputSt = process.getInputStream();
         @SuppressWarnings("resource")
@@ -26,13 +29,15 @@ public class Service {
         }
     }
 
-    public static Graph<Integer,Integer> makeGraph(int nodos, int arcos, int conexo) throws Exception {
+    public static Graph<Integer,Integer> makeGraph(int nodos, int arcos, boolean conexo) throws Exception {
         GrafoWS graphFromWebService = getGrafo(nodos, arcos, conexo);
         ArrayList<GrafoWS.Pesado> arcosWS = graphFromWebService.getArcos();
 
-
         Graph<Integer,Integer> grafo = new GrafoNoDirigido();
         int [] yaInsertados = new int[graphFromWebService.getNodosCount()];
+
+        for (int i=0; i<yaInsertados.length; i++)
+            yaInsertados[i] = 0;
 
         int pesoAux=0;
         int nodoAuxA,nodoAuxB;
@@ -58,8 +63,15 @@ public class Service {
                 yaInsertados[nodoAuxB] = 1;
             }
 
-            grafo.insertEdge(nodeA, nodeB, pesoAux);
+            grafo.insertEdge(new Vertice(nodoAuxA), new Vertice(nodoAuxB), pesoAux);
         }
+
+        for(int nodo: graphFromWebService.getNodos())
+            if(yaInsertados[nodo] == 0) {
+                grafo.insertVertex(nodo);
+                yaInsertados[nodo] = 1;
+            }
+
         return  grafo;
     }
 }

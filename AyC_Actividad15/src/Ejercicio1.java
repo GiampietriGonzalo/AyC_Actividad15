@@ -6,23 +6,13 @@ public class Ejercicio1 {
     public static void main(String[] args) throws IOException {
 
        try{
-        Graph<Integer,Integer> grafo = Service.makeGraph(5,7,1);
-        System.out.println("GRAFO CONEXO \n" + grafo.toString());
+        Graph<Integer,Integer> grafo = Service.makeGraph(5,4,false);
+        System.out.println("¿GRAFO CONEXO? \n" + grafo.toString());
 
-        if(esConexo(grafo)) {
-            System.out.println("El grafo es conexo, FUNCIONA");
-        } else {
-            System.out.println("El grafo no es conexo, NO FUNCIONA");
-        }
-
-        grafo = Service.makeGraph(5, 4,0);
-        System.out.println("\nGRAFO NO CONEXO\n" + grafo.toString());
-
-        if(!esConexo(grafo)) {
-            System.out.println("El grafo no es conexo, FUNCIONA");
-        } else {
-            System.out.println("El grafo es conexo, NO FUNCIONA");
-        }
+        if(esConexo(grafo))
+            System.out.println("El grafo es conexo.");
+        else
+            System.out.println("El grafo no es conexo.");
 
        } catch (Exception e) {
            System.out.println(e.getMessage());
@@ -35,25 +25,18 @@ public class Ejercicio1 {
     //TODO: CORREGIR Y CHECKEAR
 
     public static boolean esConexo(Graph<Integer,Integer> grafo) {
-        DisjointSet conjunto = buildDisjointSet(grafo);
+        IDisjointSet conjunto = buildDisjointSet(grafo);
+        System.out.println("DisjointSet:\n" + conjunto.toString());
         return conjunto.esConexo();
     }
 
-    private static DisjointSet buildDisjointSet(Graph<Integer,Integer> grafo){
-        DisjointSet set = new DisjointSet(grafo.totalVertex());
+    private static IDisjointSet buildDisjointSet(Graph<Integer,Integer> grafo){
+        IDisjointSet set = new ClassicDisjointSet(grafo.totalVertex());
         Arco<Integer,Integer> arco;
-
-        for (Vertex<Integer> vertice: grafo.vertices()) {
-            set.makeSet(vertice.element());
-        }
 
         for(Edge<Integer> edge: grafo.edges()) {
             arco = (Arco<Integer,Integer>) edge;
             set.union(arco.getPredecesor().element(), arco.getSucesor().element());
-        }
-
-        for (Vertex<Integer> vertice: grafo.vertices()) {
-            set.findSet(vertice.element());
         }
 
         return set;
